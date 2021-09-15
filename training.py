@@ -130,19 +130,7 @@ def test_model(input_data: str):
     print(f"Текст обзора: {input_data}\nПредсказание: {prediction}\nScore: {scope:.3f}")
 
 TEST_REVIEW = """
-a very stupid movie, it was created by a fucking idiot
+good
 """
 
-TEST_REVIEW_2 = """
-a very cool movie, it was created by a genius
-"""
-
-TEST_REVIEW_3 = """
-Transcendently beautiful in moments outside the office, it seems almost
-sitcom-like in those scenes. When Toni Colette walks out and ponders
-life silently, it's gorgeous.<br /><br />The movie doesn't seem to decide
-whether it's slapstick, farce, magical realism, or drama, but the best of it
-doesn't matter. (The worst is sort of tedious - like Office Space with less humor.)
-"""
-
-test_model(input_data="The film seemed strange to me, but I really liked it")
+test_model(input_data=TEST_REVIEW)
