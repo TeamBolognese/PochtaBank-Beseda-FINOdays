@@ -1,5 +1,5 @@
 # Анализ эмоционального окраса сообщения
-![image](https://user-images.githubusercontent.com/47640060/133848585-c9bf5877-654e-4e5f-b81f-f9aaf0a5eb93.png)
+![image](https://user-images.githubusercontent.com/47640060/133849649-6bf47ae1-4101-4795-8b81-4531f0823bff.png)
 
 Сайт проекта: http://pochtabank-case.std-1370.ist.mospolytech.ru/
 
