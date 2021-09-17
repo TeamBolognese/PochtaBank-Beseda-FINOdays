@@ -935,8 +935,8 @@
       "PER"
     ],
     "textcat":[
-      "good",
-      "bad"
+      "pos",
+      "neg"
     ]
   },
   "pipeline":[

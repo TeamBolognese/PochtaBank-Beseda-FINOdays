@@ -47,7 +47,7 @@ def train_model(
     iterations: int = 20,
 ) -> None:
     # Строим конвейер
-    nlp = spacy.load('ru_core_news_sm')
+    nlp = spacy.load('ru_core_news_lg')
     if "textcat" not in nlp.pipe_names:
         nlp.add_pipe("textcat", last=True)
     
@@ -124,8 +124,8 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     return {"precision": precision, "recall": recall, "f-score": f_score}
 
 
-# train, test = load_training_data(limit=1000)
-# train_model(train, test, 25)
+train, test = load_training_data(limit=10)
+train_model(train, test, 10)
 
 
 # Загрузка модели из файла и проверка на примере
