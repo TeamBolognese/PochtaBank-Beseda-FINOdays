@@ -1,8 +1,12 @@
 # Датасеты:
-- https://ai.stanford.edu/~amaas/data/sentiment/
-- http://help.sentiment140.com/for-students/
+- Idmb - https://ai.stanford.edu/~amaas/data/sentiment/
 
 ## Инструкция
-1. pip install -U spacy
-2. pip install -U spacy-lookups-data
-3. python -m spacy download en_core_web_sm
+
+Установка требуемых библиотек:
+```
+pip3 install spacy==3.1.0
+pip3 install spacy-lookups-data
+python3 -m spacy download en_core_web_sm
+python3 -m spacy download en_core_web_lg
+```
