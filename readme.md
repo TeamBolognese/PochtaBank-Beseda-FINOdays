@@ -32,7 +32,7 @@ python3 bottle_app.py
 Наличие файла bottle_app.py и папки ru_model в рабочем каталоге Python
 ```
 
-Также проект уже развернут и готов к использованию по адресу: http://pochtabank-case.std-1370.ist.mospolytech.ru/
+Также проект уже развернут и готов к использованию по адресу:<br> http://pochtabank-case.std-1370.ist.mospolytech.ru/
 
 Для обучения модели: 
 ```
