@@ -1,8 +1,7 @@
 import spacy
 
-path = "E:\Education\Hacks\Finodays-2021-2-stage\\test1"
-model_name = "ru_model"
-model_path = f"{path}\{model_name}"
+
+model_path = "ru_model"
 
 # Загрузка модели из файла и проверка на примере
 def test_model(input_data: str):
