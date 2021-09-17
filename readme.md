@@ -1,10 +1,24 @@
 # [RU] Модель для анализа эмоционального окраса сообщения
+![image](https://user-images.githubusercontent.com/47640060/133846881-23e266d7-f2e3-4304-8817-1758e59cc10b.png)
 
-## Используемые датасеты:
+## [Сайт проекта](http://pochtabank-case.std-1370.ist.mospolytech.ru/)
+
+## Структура
+### [Сверточная нейронная сеть (Обучение)](ru.py)
+
+### [Обученная модель](/ru_model)
+
+### [Фронтенд](https://github.com/TeamBolognese/PochtaBank-Beseda-FINOdays/tree/front)
+
+### [Веб-сервер на bottle](bottle_app.py)
+
+## Описание
+
+### Используемые датасеты:
 1. [ImdbRu](https://disk.yandex.ru/d/nBbRyRfdX8S2eA) - Нашей командой машинно-переведенные на русский язык 50 тысяч отзывов Imdb
 2. [Кинопоиск](https://disk.yandex.ru/d/EjANVCwooJyf6w) - 28 тысяч отзывов с кинотеатра Кинопоиск
 
-## Инструкция
+## Инструкции по использованию
 
 Для запуска бекенда необходимо:
 ```
@@ -17,6 +31,8 @@ python3 bottle_app.py
 
 Наличие файла bottle_app.py и папки ru_model в рабочем каталоге Python
 ```
+
+Проект уже развернут и готова к использованию по адресу: http://pochtabank-case.std-1370.ist.mospolytech.ru/
 
 Для обучения модели: 
 ```
