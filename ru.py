@@ -75,7 +75,7 @@ def train_model(training_data: list, testing_data: list, iterations: int = 20) -
                     textcat=textcat,
                     testing_data=testing_data
                 )
-                print(f"{i+1}.\t{losses['textcat']:9.6f}\t{score['precision']:.3f}\t{score['recall']:.3f}\t{score['f-score']:.3f}")
+                print(f"{i+1}.\t{losses['textcat']:9.6f}\t{score['precision']:.3f}\t{score['recall']:.3f}\t{score['accuracy']:.3f}")
     
     # Сохраняем модель
     with nlp.use_params(optimizer.averages):
