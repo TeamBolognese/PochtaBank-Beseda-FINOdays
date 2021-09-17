@@ -50,7 +50,7 @@ def train_model(training_data: list, testing_data: list, iterations: int = 20) -
     with nlp.select_pipes(enable="textcat"):
         optimizer = nlp.begin_training()
 
-        print("i.\tLoss\t\tPrec.\tRec.\tF-score")
+        print("i.\tLoss\t\tPrec.\tRec.\tAccuracy")
         batch_sizes = compounding(
             4.0, 32.0, 1.001
         ) # Генератор бесконечно последовательности входных чисел
@@ -126,7 +126,7 @@ def resume_train_model(training_data: list, testing_data: list, iterations: int 
                     textcat=textcat,
                     testing_data=testing_data
                 )
-                print(f"{i+1}.\t{losses['textcat']:9.6f}\t{score['precision']:.3f}\t{score['recall']:.3f}\t{score['f-score']:.3f}")
+                print(f"{i+1}.\t{losses['textcat']:9.6f}\t{score['precision']:.3f}\t{score['recall']:.3f}\t{score['accuracy']:.3f}")
     
     # Сохраняем модель
     with nlp.use_params(optimizer.averages):
@@ -155,8 +155,8 @@ def evaluate_model(tokenizer, textcat, testing_data: list) -> dict:
                 TN += 1    
     precision = TP / (TP + FP)
     recall = TP / (TP + FN)
-    f_score = 2 * precision * recall / (precision + recall)
-    return {"precision": precision, "recall": recall, "f-score": f_score}
+    accuracy = 2 * precision * recall / (precision + recall)
+    return {"precision": precision, "recall": recall, "accuracy": accuracy}
 
 
 train = load_data(directory="imdbru\\test")

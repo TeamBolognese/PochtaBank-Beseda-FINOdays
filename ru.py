@@ -10,13 +10,13 @@ path = "E:\Education\Hacks\Finodays-2021-2-stage\\test1"
 
 # Загрузка данных для тестирования из файла
 def load_training_data(
-    data_direstory: str = "kinopoisk",
+    data_direstory: str = "kinopoisk_14k",
     split: float = 0.8,
     limit: int = 0
 ) -> tuple:
     # Загрузка данных из файла
     reviews = []
-    for label in ["good", "bad"]:
+    for label in ["pos", "neg"]:
         labeled_directory = f"{data_direstory}/{label}"
         for review in os.listdir(labeled_directory):
             if review.endswith(".txt"):
@@ -27,8 +27,8 @@ def load_training_data(
                     if text.strip():
                         spacy_label = {
                             "cats": {
-                                "good": "good" == label,
-                                "bad": "bad" == label,
+                                "pos": "pos" == label,
+                                "neg": "neg" == label,
                             }
                         }
                         reviews.append((text, spacy_label))
@@ -47,14 +47,14 @@ def train_model(
     iterations: int = 20,
 ) -> None:
     # Строим конвейер
-    nlp = spacy.load('ru_core_news_lg')
+    nlp = spacy.load('ru_core_news_sm')
     if "textcat" not in nlp.pipe_names:
         nlp.add_pipe("textcat", last=True)
     
     textcat = nlp.get_pipe("textcat")
 
-    textcat.add_label("good")
-    textcat.add_label("bad")
+    textcat.add_label("pos")
+    textcat.add_label("neg")
 
     # Обучаем только textcat
     training_excluded_pipes = [
@@ -107,13 +107,13 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     TP, FP, TN, FN = 1e-8, 0, 0, 0
     for i, review in enumerate(textcat.pipe(reviews)):
         true_label = labels[i]['cats']
-        scope_pos = review.cats['good']
-        if true_label['good']:
+        scope_pos = review.cats['pos']
+        if true_label['pos']:
             if scope_pos >= 0.5:
                 TP += 1
             else:
                 FN += 1
-        elif true_label['bad']:
+        elif true_label['neg']:
             if scope_pos >= 0.5:
                 FP += 1
             else:
@@ -125,7 +125,9 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
 
 
 train, test = load_training_data(limit=10)
-train_model(train, test, 10)
+# train_model(train, test, 10)
+
+print(train[0])
 
 
 # Загрузка модели из файла и проверка на примере
@@ -133,23 +135,22 @@ def test_model(input_data: str):
     loaded_model = spacy.load(f"{path}\\ru_model")
     parsed_text = loaded_model(input_data)
 
-    if parsed_text.cats["good"] > parsed_text.cats["bad"]:
+    if parsed_text.cats["pos"] > parsed_text.cats["neg"]:
         prediction = "Положительный"
-        scope = parsed_text.cats["good"]
+        scope = parsed_text.cats["pos"]
     else:
         prediction = "Негативный"
-        scope = parsed_text.cats["bad"]
+        scope = parsed_text.cats["neg"]
     print(f"Текст обзора: {input_data}\nТональный окрас: {prediction}\nScore: {scope:.3f}")
 
 
-good_str = """
+pos_str = """
 Мне очень понравилось, фильм прекрасен, я в восторге!
 """
 
-bad_str = """
+neg_str = """
 Мне не понравилось, выглядело очень плохо.
 """
 
-rep = str(input())
-
-test_model(input_data=rep)
+# rep = str(input())
+# test_model(input_data=rep)
