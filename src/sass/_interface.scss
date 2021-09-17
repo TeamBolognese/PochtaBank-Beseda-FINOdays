@@ -1,0 +1,60 @@
+
+// [ FONTS ]
+//  // [ Syne: regular ]
+//  @font-face {
+//     font-family: 'Syne';
+//     src: url('../fonts/Syne/Syne-Regular/Syne-Regular.eot');
+//     src: local('Syne'), url('../fonts/Syne/Syne-Regular/Syne-Regular.woff') format('woff'), url('../fonts/Syne/Syne-Regular/Syne-Regular.ttf') format('truetype'), url('../fonts/Syne/Syne-Regular/Syne-Regular.svg') format('svg');
+//     font-weight: 400;
+// }
+// // [ Syne: medium ]
+// @font-face {
+//     font-family: 'Syne';
+//     src: url('../fonts/Syne/Syne-Medium.eot');
+//     src: local('Syne'), url('../fonts/Syne/Syne-Medium/Syne-Medium.woff') format('woff'), url('../fonts/Syne/Syne-Medium/Syne-Medium.ttf') format('truetype'), url('../fonts/Syne/Syne-Medium/Syne-Medium.svg') format('svg');
+//     font-weight: 500;
+// }
+// // [ Syne: semi-bold ]
+// @font-face {
+//     font-family: 'Syne';
+//     src: url('../fonts/Syne/Syne-SemiBold.eot');
+//     src: local('Syne'), url('../fonts/Syne/Syne-SemiBold/Syne-SemiBold.woff') format('woff'), url('../fonts/Syne/Syne-SemiBold/Syne-SemiBold.ttf') format('truetype'), url('../fonts/Syne/Syne-SemiBold/Syne-SemiBold.svg') format('svg');
+//     font-weight: 600;
+// }
+// // [ Syne: bold ]
+// @font-face {
+//     font-family: 'Syne';
+//     src: url('../fonts/Syne/Syne-Bold.eot');
+//     src: local('Syne'), url('../fonts/Syne/Syne-Bold/Syne-Bold.woff') format('woff'), url('../fonts/Syne/Syne-Bold/Syne-Bold.ttf') format('truetype'), url('../fonts/Syne/Syne-Bold/Syne-Bold.svg') format('svg');
+//     font-weight: 700;
+// }
+// // [ Syne: extra-bold ]
+// @font-face {
+//     font-family: 'Syne';
+//     src: url('../fonts/Syne/Syne-ExtraBold.eot');
+//     src: local('Syne'), url('../fonts/Syne/Syne-ExtraBold/Syne-ExtraBold.woff') format('woff'), url('../fonts/Syne/Syne-ExtraBold/Syne-ExtraBold.ttf') format('truetype'), url('../fonts/Syne/Syne-ExtraBold/Syne-ExtraBold.svg') format('svg');
+//     font-weight: 800;
+// }
+
+
+// [ SCROLLBAR ]
+::-webkit-scrollbar {
+    width: 7px;
+    cursor: alias;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lighten($dark, 10%);
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: lighten($dark, 7%);
+    transition: background 0.25s ease-in;
+}
+
+::-webkit-scrollbar-track {
+    border: none;
+    background: transparent;
+}
+  

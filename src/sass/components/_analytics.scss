@@ -1,0 +1,135 @@
+
+// [ ANALYTICS SECTION ]
+.section-analytics {
+    width: 100%; 
+    padding: var(--m-tiny);
+    
+    @include flex-align(flex-start, center, column); 
+}
+// [ sections ]
+.section-assessment, .section-ratio, .section-actions {
+    width: 100%;
+    @include flex-align(flex-start, center, column); 
+
+    .content {
+        @include flex-align(flex-start, center, column); 
+    }
+}
+.section-assessment, .section-ratio {
+    margin-bottom: var(--m-tiny);
+}
+
+// [ section: assessment ]
+.section-assessment p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: $f-medium;
+}
+.section-assessment .emoji {
+    width: 50px; height: 50px;
+    margin: 0;
+}
+
+
+// [ section: ratio ]
+.section-ratio .content {
+    width: 100%;
+}
+.section-ratio .progressbar {
+    width: 100%; height: 10px;
+    border-radius: 10px;
+    @include flex-align(flex-start, center);
+}
+.section-ratio .progressbar .bar {
+    height: 10px;
+    border-radius: 10px;
+
+    &:first-of-type {
+        border-radius: 10px 0 0 10px;
+    }
+    &:nth-child(2) {
+        border-radius: 0;
+    }
+    &:last-of-type {
+        border-radius: 0 10px 10px 0 !important;
+    }
+
+    &-green  { background: $green  }
+    &-yellow { background: $yellow }
+    &-red    { background: $red    }
+}
+
+.section-ratio .infographics {
+    width: 100%;
+    margin-top: var(--m-tiny);
+    @include flex-align(center, flex-start, column);
+}
+.section-ratio .infographics .info-bar {
+    position: relative;
+    width: 44px; height: 44px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background: $l-grey;
+    color: $white;
+    font-size: 1.5rem;
+    font-weight: $f-bold;
+    @include flex-align;
+
+    &:last-of-type { margin-bottom: 0 }
+
+    &-green {
+        background: $green;
+    }
+    &-yellow {
+        background: $yellow;
+    }
+    &-red {
+        background: $red;
+    }
+
+    &::after {
+        content: 'positive';
+        display: block;
+        @include align(left, center, absolute, 60px);
+    }
+    &-green::after {
+        content: 'положительное';
+        color: $green;
+    }
+    &-yellow::after {
+        content: 'нейтральное';
+        color: $yellow;
+    }
+    &-red::after {
+        content: 'негативное';
+        color: $red;
+    }
+}
+
+
+// [ section: actions ]
+.section-actions  .content {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: row !important;
+    @include flex-align(flex-start, flex-start);
+}
+.single-action {
+    padding: 10px 15px;
+    background: $l-grey;
+    border-radius: 7px;
+    color: $dark;
+    font-size: 1.5rem;
+    font-weight: $f-medium;
+    cursor: pointer;
+    transition: 0.25s;
+    @include flex-align;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    p { margin: 0 }
+}

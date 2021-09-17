@@ -1,0 +1,133 @@
+
+// [ MIXINS ]
+
+// center > element via absolute positioning
+@mixin align($x: center, $y: center, $pos: absolute, $mx: 0, $my: 0) {
+
+    position: $pos;
+
+    $offset_x: -50%; $offset_y: -50%;
+
+    // set > x offset
+    @if $x == 'left'    { left: 0 + $mx;   $offset_x: 0; }
+    @if $x == 'center'  { left: 50% + $mx; $offset_x: -50%; }
+    @if $x == 'right'   { right: 0 + $mx;  $offset_x: 0; }
+    // set > y offset
+    @if $y == 'top'     { top: 0 + $my;    $offset_y: 0; }
+    @if $y == 'center'  { top: 50% + $my;  $offset_y: -50%; }
+    @if $y == 'bottom'  { bottom: 0 + $my; $offset_y: 0; }
+
+    transform: translateX($offset_x) translateY($offset_y);
+
+}
+
+// center > content via flexbox
+@mixin flex-align($x_axe: center, $y_axe: center, $direction: false) {
+
+    @if $x_axe == 'def' { $x_axe: center }
+    @if $y_axe == 'def' { $y_axe: center }
+    
+    @if $direction { flex-direction: $direction }
+
+    display: flex;
+    justify-content: $x_axe;
+    align-content: $y_axe;
+    align-items: $y_axe;
+    
+}
+
+// center > content via margin
+@mixin mg-center($mg-top: 0, $mg-bottom: 0) {
+    display: block;
+    margin: $mg-top auto $mg-bottom auto;
+}
+
+// blur > background
+@mixin glass($blur: '5px', $opacity: 0.5, $background: 'none') {
+
+    // set > default values
+    @if $blur == 'def' {
+        $blur: 5px;
+    }
+    @if $opacity == 'def' {
+        $opacity: 0.5;
+    }
+
+    @if $background != 'none' {
+        background: rgba($background, $opacity);
+    }
+    @else { 
+        opacity: $opacity;
+    }
+
+    backdrop-filter: blur($blur);
+    -moz-backdrop-filter: blur($blur);
+    -khtml-backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+
+}
+// remove > glass effect
+@mixin unglass { backdrop-filter: blur(0) }
+
+// set > border-radius
+@mixin border-radius($v) {
+    border-radius: $v;
+    -moz-border-radius: $v;
+    -khtml-border-radius: $v;
+    -webkit-border-radius: $v;
+}
+
+// set > box-shadow
+@mixin box-shadow($strength: 'lite', $offset: 'none') {
+
+    // set > offset 
+    @if $offset == 'none' {
+        $offset: 0 0;
+    }
+    @if $offset == 'left' {
+        $offset: -5px 0;
+    }
+    @if $offset == 'right' {
+        $offset: 5px 0;
+    }
+    @if $offset == 'top' {
+        $offset: 0 5px;
+    }
+    @if $offset == 'bottom' {
+        $offset: 0 -5px;
+    }
+
+    // set > strength
+    @if $strength == 'lite' {
+        $strength: 10px 0px rgba(0, 0, 0, 0.08);
+    }
+    @if $strength == 'medium' {
+        $strength: 10px 3px rgba(0, 0, 0, 0.25);
+    }
+    @if $strength == 'strong' {
+        $strength: 10px 5px rgba(0, 0, 0, 0.85);
+    }
+
+
+    box-shadow:         $offset $strength;
+    -moz-box-shadow:    $offset $strength;
+    -khtml-box-shadow:  $offset $strength;
+    -webkit-box-shadow: $offset $strength;
+    
+}
+
+// set > centered background-image
+@mixin bg-img($path, $size: auto 100%, $pos: center) {
+    background-image: url($path);
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-position: $pos;
+}
+
+
+// stretch > element over whole space
+@mixin stretch($pos: absolute) {
+    position: $pos;
+    top: 0; bottom: 0; 
+    left: 0; right: 0;
+}

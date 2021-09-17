@@ -1,0 +1,113 @@
+
+// [ MESSAGE ]
+.message {
+    width: 400px; height: auto;
+    flex-shrink: 0;
+    margin-top: var(--m-tiny);
+    background: $l-grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s;
+    @include flex-align(def, def, column);
+
+    & + & { margin-top: var(--m-tiny) }
+
+    &:hover { 
+        opacity: 0.8;
+    }
+    &:active { 
+        opacity: 1;
+    }
+
+}
+.message.active {
+    position: relative;
+    margin-top: 50px;
+    width: 450px; padding: 15px 0;
+    background: $dark;
+    z-index: 90;
+
+    &::before {
+        content: "Выбрано:";
+        display: block;
+        color: $dark;
+        font-size: 1.5rem; 
+        font-weight: $f-bold;
+        z-index: 90;
+        @include align(center, top, absolute, 0, -30px);
+    }
+
+    .message-text, .metadata .date { 
+        color: $l-grey;
+        font-size: 1.6rem;
+    }
+
+    .metadata .indicator {
+        background: rgba($white, 0.2);
+    }
+}
+
+// [ message text ]
+.message-text { 
+    width: 100%;
+    padding: var(--m-tiny);
+    color: $dark;
+    font-size: 1.5rem;
+}
+
+// [ message text ]
+.metadata { 
+    width: 100%;
+    padding: 10px var(--m-tiny);
+    @include flex-align(space-between);
+}
+.metadata .indicator {
+    position: relative;
+    max-width: max-content;
+    width: auto;
+    padding: 5px;
+    padding-right: 10px;
+    background: $white;
+    border-radius: 100px;
+    font-size: 1.5rem;
+    font-weight: $f-bold;
+
+    .emotion {
+        @include flex-align(flex-start, center);
+    }
+
+    .emotion::before {
+        content: '';
+        display: block;
+        width: 20px; height: 20px;
+        margin-right: 10px;
+        background: $red;
+        border-radius: 20px;
+    }
+
+    // positive indicator
+    .emotion.green::before {
+        background: $green;
+    }
+    .emotion.green {
+        color: $green;
+    }
+    // neutral indicator
+    .emotion.yellow::before {
+        background: $yellow;
+    }
+    .emotion.yellow {
+        color: $yellow;
+    }
+    // negative indicator
+    .emotion.red::before {
+        background: $red;
+    }
+    .emotion.red {
+        color: $red;
+    }
+}
+.metadata .date {
+    font-size: 1.5rem;
+    color: $dark;
+}

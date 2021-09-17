@@ -1,0 +1,35 @@
+
+// [ GENERAL ]
+html { font: $font; font-weight: $f-normal; }
+body {
+    background: lighten($l-grey, 4%);
+    color: $dark;
+    font-smooth: antialiased;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a { 
+    color: $white;
+}
+
+
+// [ MAIN ]
+main {
+    width: 100%; height: auto; min-height: 100vh;
+    padding: var(--m-medium) var(--m-large);
+    gap: var(--m-big);
+    flex-wrap: wrap;
+
+    @include flex-align(center, stretch);
+}
+
+svg.ico {
+    width: 22px; height: 22px; 
+}
+
+
+// [ CUSTOMS ]
+.txt-green  { color: $green  }
+.txt-yellow { color: $yellow }
+.txt-red    { color: $red    }

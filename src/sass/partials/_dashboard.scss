@@ -1,0 +1,29 @@
+
+// [ DASHBOARD ]
+.dashboard {
+    position: relative;
+    margin: 0;
+    width: calc(40% - var(--m-big));
+    min-width: 300px; min-height: 550px;
+    background: $white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 47px 1px rgba(5, 31, 80, 0.07);
+}
+
+.system-message {
+    background: rgba($grey, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    @include stretch;
+    @include flex-align;
+}
+.msg-text { 
+    max-width: 200px;
+    padding: var(--m-tiny) var(--m-small);
+    background: $l-grey;
+    font-size: 2rem;
+    color: $dark;
+    border-radius: 10px;
+    @include flex-align;
+}

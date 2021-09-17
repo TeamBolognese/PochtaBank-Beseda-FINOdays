@@ -1,0 +1,16 @@
+
+// [ MESSAGE CONTAINER ]
+.section-messages {
+    position: relative;
+    width: 100%;
+    flex-grow: 1;
+}
+.scroll-area {
+    max-height: 100%;
+    padding: var(--m-tiny);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    @include stretch(absolute);
+    @include flex-align(flex-start, center, column);
+}

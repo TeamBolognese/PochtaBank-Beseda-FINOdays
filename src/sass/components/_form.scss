@@ -1,0 +1,80 @@
+
+// [ FORM ]
+form {
+    --padding: 15px; 
+
+    @include flex-align;
+}
+form.single-line {
+    flex-wrap: nowrap;
+    @include flex-align(space-between, flex-end);
+
+    input, .input { flex-grow: 1; margin-right: var(--m-tiny) }
+}
+
+// [ input ]
+.input {
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.input [contenteditable] { 
+    width: 100%; max-width: 100%; height: 100%;
+    word-break: break-word;
+    z-index: 0;
+    outline: none;
+    appearance: none;
+    @include flex-align(flex-start, center);
+
+    &:focus + .placeholder { opacity: 0.6 }
+}
+
+.input .placeholder { 
+    margin: 0;
+    font-size: 1.5rem;
+    color: rgba($dark, 0.7);
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    @include align(left, center, absolute, var(--padding));
+    left: var(--padding);
+}
+
+input, .input [contenteditable] {
+    position: relative;
+    min-width: 300px; min-height: 40px;
+    padding: varset('--padding - 5px') var(--padding);
+    background: darken($l-grey, 1%);
+    border: 1px solid darken($l-grey, 15%);
+    border-radius: 5px;
+    color: $dark;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    transition: border-color 0.25s, background 0.25s;
+
+    &:focus {
+        border-color: darken($l-grey, 25%);
+        background: $l-grey;
+    }
+}
+
+// [ button ]
+button {
+    cursor: pointer;
+    transition: opacity 0.25s;
+    @include flex-align;
+
+    &:hover {
+        opacity: 0.9;
+    }
+    &:active {
+        opacity: 1;
+    }
+}
+button.send {
+    width: 40px; height: 40px;
+    background: $purple;
+    border-radius: 5px;
+}

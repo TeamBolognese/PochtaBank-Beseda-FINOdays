@@ -1,0 +1,9 @@
+
+// [ TOOLBAR ]
+.section-toolbar {
+    width: 100%; min-height: 50px;
+    border-top: 1px solid $l-grey;
+    padding: varset('--m-tiny - 8px') var(--m-tiny);
+    
+    @include flex-align;
+}

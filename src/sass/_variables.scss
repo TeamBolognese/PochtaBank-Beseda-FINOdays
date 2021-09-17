@@ -1,0 +1,47 @@
+
+// [ COLOURS ]:
+
+$white:     #FFFFFF;
+$l-grey:    #EDEDF2;
+$grey:      #8B929A;
+$dark:      #1E2732;
+$purple:    #3A499C;
+$green:     #4BE275;
+$yellow:    #FFBC3B;
+$red:       #E24B4B;
+
+
+// [ FONTS ]:
+
+$f-size: 10px;
+$f-body:    'Roboto', sans-serif;
+$font: $f-size $f-body;
+$f-lite:        300;
+$f-normal:      400;
+$f-medium:      500;
+$f-semibold:    600;
+$f-bold:        700;
+$f-extra-bold:  800;
+$f-black:       900;
+
+
+// [ SIZES ]:
+
+$mb: 576px;
+$sm: 768px;
+$md: 900px;
+$lg: 1200px;
+$w: $lg;
+
+
+// [ MARGINS ]:
+
+:root {
+
+    --m-tiny:   25px;
+    --m-small:  30px;
+    --m-medium: 40px;
+    --m-big:    50px;
+    --m-large:  80px;
+
+}
