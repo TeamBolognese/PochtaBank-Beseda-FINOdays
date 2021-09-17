@@ -1,4 +1,4 @@
-# Сервис анализа эмоционального окраса высказываний
+# Проект по анализу эмоционального окраса высказываний
 ![image](https://user-images.githubusercontent.com/47640060/133849649-6bf47ae1-4101-4795-8b81-4531f0823bff.png)
 
 Сайт проекта: http://pochtabank-case.std-1370.ist.mospolytech.ru/
